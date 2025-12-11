@@ -1,0 +1,60 @@
+/* รีเซตสไตล์ทั้งหมดให้เป็นศูนย์ และบอกให้คำนวณขนาดแบบรวมขอบด้วย” — ใช้เพื่อทำให้ layout คุมง่ายขึ้น ไม่เพี้ยน */
+*{
+    margin: 0;/* เอาระยะห่างรอบกล่องออก */
+    padding: 0;/* เอาระยะห่างด้านในออก */
+    box-sizing: border-box;/* คิดความกว้าง/สูงแบบรวม padding + border เข้าไปเลย */
+}
+
+/* ปรับแต่งรูปภาพทีี่อยู่ใน slideshow-container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin:auto;
+}
+
+/* ซ้อนรูปภาพ */
+.mySlides{
+    display: none;
+}
+
+/* ปุ่มเลื่อนสไลด์ */
+.prev, .next {
+    cursor: pointer;            /* เปลี่ยนเมาส์เป็นรูปมือ → บอกว่าปุ่มนี้คลิกได้ */
+    position: absolute;         /* ให้ปุ่มลอยอิสระบนพื้นที่ของสไลด์ */
+    top: 50%;                   /* วางปุ่มให้อยู่กึ่งกลางแนวตั้งของ container */
+    transform: translateY(-50%);/* ขยับขึ้นครึ่งหนึ่งของตัวเอง เพื่อให้กลางเป๊ะกว่า margin-top */
+    padding: 16px;              /* เพิ่มพื้นที่สำหรับคลิกให้ปุ่มใหญ่ขึ้น */
+    color: white;               /* สีตัวอักษรเป็นสีขาว */
+    font-size: 18px;            /* ขนาดตัวหนังสือ 18px */
+    font-weight: 600;           /* ความหนาตัวหนังสือ (แทน 18px ที่ผิด syntax) */
+    user-select: none;          /* ห้ามลากเลือกตัวอักษรในปุ่ม ไม่ให้ดูแปลก */
+    transition: all 0.3s ease;  /* เพิ่มเอฟเฟกต์เวลา hover ให้ลื่น ๆ */
+}
+
+/* กำหนดตำแหน่งปุ่ม nexe ไปด้านขวา */
+.next {
+    right: 0;                   /* ชิดขวาสุดของ container */
+    border-radius: 3px 0 0 3px; /* มุมซ้ายบน + ซ้ายล่างโค้ง 3px ส่วนมุมขวาเป็นเหลี่ยม */
+}
+
+/* เอฟเฟคปุ่มเมื่อเอาเมาสืชี้ hover */
+.prev:hover, .next:hover {
+    background-color: black;   /* ตอน hover ให้พื้นหลังกลายเป็นสีดำ */
+}
+
+/* ปรับแต่งจุด dot */
+.dot {
+    cursor: pointer;                 /* ให้เมาส์เป็นรูปมือ → บอกว่าคลิกได้ */
+    height: 15px;                    /* ความสูงของจุด */
+    width: 15px;                     /* ความกว้างของจุด */
+    margin: 0 2px;                   /* เว้นระยะซ้าย-ขวานิดหน่อย ให้จุดไม่ชิดกันเกินไป */
+    background-color: #bbb;          /* สีพื้นฐานของจุด (เทาอ่อน) */
+    border-radius: 50%;              /* ทำเป็นวงกลม */
+    display: inline-block;           /* วางเรียงในบรรทัดเดียวกัน */
+    transition: background-color 0.6s ease; /* เวลาเปลี่ยนสีให้ค่อย ๆ ฟีด ลื่นขึ้น */
+}
+
+/* ถ้า dot ตัวไหนมี class .active หรือถูก hover → เปลี่ยนสีเข้มขึ้น */
+.active, .dot:hover {
+    background-color: #717171;       /* สีเทาเข้มเมื่อ active หรือ hover */
+}
